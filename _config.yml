@@ -1,6 +1,8 @@
 theme: jekyll-theme-cayman
 title: The IoT-Bench Repository
 description: A community effort to better evaluate and compare low-power wireless networks
+github:
+  is_project_page: true
 
 collections:
   profiles:
