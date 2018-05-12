@@ -8,7 +8,7 @@ The general IoT-Bench website is at: [www.iotbench.ethz.ch](https://www.iotbench
 
 ## Profile Framework
 
-The general IoT-Bench framework can be found [here](/pages/framework).
+The general IoT-Bench framework can be found [here](/framework).
 
 ## Profiles
 
