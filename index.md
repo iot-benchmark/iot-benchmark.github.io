@@ -1,3 +1,7 @@
+---
+title: The IoT-Bench Repository
+---
+
 # Home Page
 
 Welcome to the IoT-Bench repository.
