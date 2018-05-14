@@ -2,7 +2,7 @@
 uid: protocol3
 name: Protocol 3
 description: >
-  This is a *markdown* description of the protocol.
+  This protocol is *just a placeholder*.
 ---
 
 {% include protocol.md %}

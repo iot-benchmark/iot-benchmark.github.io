@@ -2,10 +2,7 @@
 uid: somepattern-4s
 name: A given pattern, 4s
 description: >
-  This is a *markdown* description of the profile.
-  Multiple lines are allowed, and so are:
-    * Item lists
-    * And basically any other markdown stuff.
+  This profile is *just a placeholder*.
 input-parameters:
   traffic-pattern: Some pattern (space domain)
   traffic-period: 4s
