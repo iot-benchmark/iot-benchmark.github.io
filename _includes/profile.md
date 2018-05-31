@@ -46,67 +46,67 @@ None
 
 ## Results
 
-{% assign profile_setups = site.setups | where: "profile", profile.uid %}
-{% assign profile_setups = profile_setups | sort: "environment" %}
+{% assign profile_results = site.results | where: "profile", profile.uid %}
+{% assign profile_results = profile_results | sort: "environment" %}
 
-This profile has results for the following setups:
+This profile has results for the following results:
 
 [//]: # Build a table with one row per protocol, one column per environment,
-[//]: # and each cell showing all setups with results for this profile.
+[//]: # and each cell showing all results with results for this profile.
 
 |  | {% for environment in site.environments %} [{{environment.name}}](/environments/{{environment.env_id}}) | {% endfor %}
-| --- | {% for setup in site.setups %} --- | {% endfor %}
+| --- | {% for result in site.results %} --- | {% endfor %}
 {%- for protocol in site.protocols %}
 | [{{protocol.name}}](/protocols/{{protocol.uid}}) |
 {%- for environment in site.environments -%}
-{%- assign cell_setups = site.setups | where: "profile", profile.uid | where: "protocol": protocol.uid | where: "environment", environment.env_id -%}
-{%- for setup in cell_setups -%}
-{%- assign profile = site.profiles | where: "uid", setup.profile | first -%}
-[[{{setup.configuration}}]](/setups/{{setup.uid}})<br />
+{%- assign cell_results = site.results | where: "profile", profile.uid | where: "protocol": protocol.uid | where: "environment", environment.env_id -%}
+{%- for result in cell_results -%}
+{%- assign profile = site.profiles | where: "uid", result.profile | first -%}
+[[{{result.configuration}}]](/results/{{result.uid}})<br />
 {%- endfor -%}
  |
 {%- endfor -%}
 {%- endfor %}
 
-The data, with for each setup a distribution of per-run means, is shown next.
+The data, with for each result a distribution of per-run means, is shown next.
 
 {% include plotly/header.md %}
 
 {% for m in profile.output-metrics %}
 {% assign metric = site.metrics | where: "uid", m | first %}
 
-[//]: # For each metric plot performance of each setup as a boxplot-init
-[//]: # For each setup, we construct an array with one element
+[//]: # For each metric plot performance of each result as a boxplot-init
+[//]: # For each result, we construct an array with one element
 [//]: # per run, which contains the mean value over the run.
-[//]: # The boxplot will show the distribution across runs in a given setup.
-[//]: # One x item per setup.
+[//]: # The boxplot will show the distribution across runs in a given result.
+[//]: # One x item per result.
 
 [//]: # Start new plot
 {% assign plot-id = "summary-"| append: {{metric.uid}} %}
 {% include plotly/boxplot-init.md %}
 
-[//]: # For each setup, build array that summarizes results for the current metric
-{% for setup in profile_setups %}
+[//]: # For each result, build array that summarizes results for the current metric
+{% for result in profile_results %}
 
-{% assign protocol = site.protocols | where: "uid", setup.protocol | first %}
-{% assign environment = site.environments | where: "uid", setup.environment | first %}
-{% assign results = site.data.results[{{setup.uid}}]}} %}
-{% assign setup_name = {{protocol.name}} | append: " [" | append: {{setup.configuration}} | append: "]<br />" | append: {{environment.name}}  %}
+{% assign protocol = site.protocols | where: "uid", result.protocol | first %}
+{% assign environment = site.environments | where: "uid", result.environment | first %}
+{% assign results = site.data.results[{{result.uid}}]}} %}
+{% assign result_name = {{protocol.name}} | append: " [" | append: {{result.configuration}} | append: "]<br />" | append: {{environment.name}}  %}
 [//]: # Create an empty array where to store the mean result of each run
-{% assign setup_means = "" | split: "" %}
+{% assign result_means = "" | split: "" %}
 
 {% for run in results %}
 
-[//]: # Compute mean metric for this run, populate array setup_means
+[//]: # Compute mean metric for this run, populate array result_means
 {% assign data = run[1][metric.uid] %}
 {% include functions/mean.md %}
-{% assign setup_means = setup_means | push: return %}
+{% assign result_means = result_means | push: return %}
 
 {% endfor %}
 
 [//]: # Add data to boxplot (one new x item)
-{% assign plot-ydata = setup_means %}
-{% include plotly/boxplot-add.md name=setup_name %}
+{% assign plot-ydata = result_means %}
+{% include plotly/boxplot-add.md name=result_name %}
 
 {% endfor %}
 

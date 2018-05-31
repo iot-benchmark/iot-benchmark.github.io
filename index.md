@@ -40,18 +40,18 @@ We currently have results for the following protocols:
 A summary of current results is shown below:
 
 [//]: # Show a table one row per profile, one column per environment, and in each
-[//]: # cell, the setups we have results for.
+[//]: # cell, the results we have results for.
 
 |  | {% for environment in site.environments %} [{{environment.name}}](/environments/{{environment.env_id}}) | {% endfor %}
-| --- | {% for setup in site.setups %} --- | {% endfor %}
+| --- | {% for result in site.results %} --- | {% endfor %}
 {%- for profile in site.profiles %}
 | [{{profile.name}}](/profiles/{{profile.uid}}) |
 {%- for environment in site.environments -%}
-{%- assign cell_setups = site.setups | where: "profile", profile.uid | where: "environment", environment.env_id -%}
-{%- for setup in cell_setups -%}
-{%- assign protocol = site.protocols | where: "uid", setup.protocol | first -%}
-{%- assign profile = site.profiles | where: "uid", setup.profile | first -%}
-<small>[{{protocol.name}} [{{setup.configuration}}]](/setups/{{setup.uid}})</small><br />
+{%- assign cell_results = site.results | where: "profile", profile.uid | where: "environment", environment.env_id -%}
+{%- for result in cell_results -%}
+{%- assign protocol = site.protocols | where: "uid", result.protocol | first -%}
+{%- assign profile = site.profiles | where: "uid", result.profile | first -%}
+<small>[{{protocol.name}} [{{result.configuration}}]](/results/{{result.uid}})</small><br />
 {%- endfor -%}
  |
 {%- endfor -%}

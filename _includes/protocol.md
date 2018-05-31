@@ -12,17 +12,17 @@
 ## Results for {{ protocol.name }}
 
 [//]: # Build a table with one row per profile, one column per environment,
-[//]: # and each cell showing all setups with results for this protocol.
+[//]: # and each cell showing all results with results for this protocol.
 
 |  | {% for environment in site.environments %} [{{environment.name}}](/environments/{{environment.env_id}}) | {% endfor %}
-| --- | {% for setup in site.setups %} --- | {% endfor %}
+| --- | {% for result in site.results %} --- | {% endfor %}
 {%- for profile in site.profiles %}
 | [{{profile.name}}](/profiles/{{profile.uid}}) |
 {%- for environment in site.environments -%}
-{%- assign cell_setups = site.setups | where: "profile", profile.uid | where: "protocol": protocol.uid | where: "environment", environment.env_id -%}
-{%- for setup in cell_setups -%}
-{%- assign profile = site.profiles | where: "uid", setup.profile | first -%}
-[[{{setup.configuration}}]](/setups/{{setup.uid}})<br />
+{%- assign cell_results = site.results | where: "profile", profile.uid | where: "protocol": protocol.uid | where: "environment", environment.env_id -%}
+{%- for result in cell_results -%}
+{%- assign profile = site.profiles | where: "uid", result.profile | first -%}
+[[{{result.configuration}}]](/results/{{result.uid}})<br />
 {%- endfor -%}
  |
 {%- endfor -%}

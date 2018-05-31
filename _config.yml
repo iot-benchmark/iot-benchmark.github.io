@@ -11,7 +11,7 @@ collections:
     output: true
   environments:
     output: true
-  setups:
+  results:
     output: true
   metrics:
     output: true

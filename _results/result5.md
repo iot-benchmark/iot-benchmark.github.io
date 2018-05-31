@@ -1,5 +1,5 @@
 ---
-uid: setup5
+result_id: result5
 profile: somepattern-4s
 environment: indriya
 protocol: protocol1
@@ -10,4 +10,4 @@ description: >
   This example showcases a low-latency configuration for a given protocol.
 ---
 
-{% include setup.md %}
+{% include result.md %}

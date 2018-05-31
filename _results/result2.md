@@ -1,7 +1,7 @@
 ---
-uid: setup4
-profile: somepattern-random
-environment: flocklab
+uid: result2
+profile: somepattern-4s
+environment: iotlab
 protocol: protocol3
 configuration: default
 description: >
@@ -9,4 +9,4 @@ description: >
   and any other relevant aspect.
 ---
 
-{% include setup.md %}
+{% include result.md %}

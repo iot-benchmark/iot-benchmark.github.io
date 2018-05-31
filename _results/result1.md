@@ -1,5 +1,5 @@
 ---
-uid: setup1
+result_id: result1
 profile: somepattern-4s
 environment: indriya
 protocol: protocol1
@@ -10,4 +10,4 @@ description: >
   This example showcases a low-power configuration for a given protocol.
 ---
 
-{% include setup.md %}
+{% include result.md %}

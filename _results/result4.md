@@ -1,12 +1,12 @@
 ---
-uid: setup3
-profile: somepattern-50s
-environment: indriya
-protocol: protocol2
+uid: result4
+profile: somepattern-random
+environment: flocklab
+protocol: protocol3
 configuration: default
 description: >
   This describes how the protocol was configured,
   and any other relevant aspect.
 ---
 
-{% include setup.md %}
+{% include result.md %}
