@@ -1,7 +1,7 @@
 ---
 uid: setup4
 profile: somepattern-random
-testbed: flocklab
+environment: flocklab
 protocol: protocol3
 configuration: default
 description: >

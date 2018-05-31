@@ -1,18 +1,18 @@
 [//]: # Meant for inclusion from pages under \_setups, which defines
 [//]: # experiment setups. Shows a textual description of the setup,
-[//]: # as well as the profile, testbed, protocol, and configuration used.
+[//]: # as well as the profile, environment, protocol, and configuration used.
 [//]: # Then plots all results for this setup, including per-run details.
 
 {% assign setup = page %}
 {% assign profile = site.profiles | where: "uid", setup.profile | first %}
-{% assign testbed = site.testbeds | where: "uid", setup.testbed | first %}
+{% assign environment = site.environments | where: "uid", setup.environment | first %}
 {% assign protocol = site.protocols | where: "uid", setup.protocol | first %}
 
 # Experimental Setup page
 
 This page shows the following setup:
 * Profile: [{{profile.name}}](/profiles/{{profile.uid}})
-* Testbed: [{{testbed.name}}](/testbeds/{{testbed.uid}})
+* Environment: [{{environment.name}}](/environments/{{environment.env_id}})
 * Protocol: [{{protocol.name}}](/protocols/{{protocol.uid}})
 * Configuration: {{ setup.configuration }}
 

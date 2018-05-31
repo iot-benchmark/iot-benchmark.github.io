@@ -1,7 +1,7 @@
 ---
 uid: setup5
 profile: somepattern-4s
-testbed: indriya
+environment: indriya
 protocol: protocol1
 configuration: low lat
 description: >

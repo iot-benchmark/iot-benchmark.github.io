@@ -47,19 +47,19 @@ None
 ## Results
 
 {% assign profile_setups = site.setups | where: "profile", profile.uid %}
-{% assign profile_setups = profile_setups | sort: "testbed" %}
+{% assign profile_setups = profile_setups | sort: "environment" %}
 
 This profile has results for the following setups:
 
-[//]: # Build a table with one row per protocol, one column per testbed,
+[//]: # Build a table with one row per protocol, one column per environment,
 [//]: # and each cell showing all setups with results for this profile.
 
-|  | {% for testbed in site.testbeds %} [{{testbed.name}}](/testbeds/{{testbed.uid}}) | {% endfor %}
+|  | {% for environment in site.environments %} [{{environment.name}}](/environments/{{environment.env_id}}) | {% endfor %}
 | --- | {% for setup in site.setups %} --- | {% endfor %}
 {%- for protocol in site.protocols %}
 | [{{protocol.name}}](/protocols/{{protocol.uid}}) |
-{%- for testbed in site.testbeds -%}
-{%- assign cell_setups = site.setups | where: "profile", profile.uid | where: "protocol": protocol.uid | where: "testbed", testbed.uid -%}
+{%- for environment in site.environments -%}
+{%- assign cell_setups = site.setups | where: "profile", profile.uid | where: "protocol": protocol.uid | where: "environment", environment.env_id -%}
 {%- for setup in cell_setups -%}
 {%- assign profile = site.profiles | where: "uid", setup.profile | first -%}
 [[{{setup.configuration}}]](/setups/{{setup.uid}})<br />
@@ -89,9 +89,9 @@ The data, with for each setup a distribution of per-run means, is shown next.
 {% for setup in profile_setups %}
 
 {% assign protocol = site.protocols | where: "uid", setup.protocol | first %}
-{% assign testbed = site.testbeds | where: "uid", setup.testbed | first %}
+{% assign environment = site.environments | where: "uid", setup.environment | first %}
 {% assign results = site.data.results[{{setup.uid}}]}} %}
-{% assign setup_name = {{protocol.name}} | append: " [" | append: {{setup.configuration}} | append: "]<br />" | append: {{testbed.name}}  %}
+{% assign setup_name = {{protocol.name}} | append: " [" | append: {{setup.configuration}} | append: "]<br />" | append: {{environment.name}}  %}
 [//]: # Create an empty array where to store the mean result of each run
 {% assign setup_means = "" | split: "" %}
 

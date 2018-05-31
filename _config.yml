@@ -9,7 +9,7 @@ collections:
     output: true
   protocols:
     output: true
-  testbeds:
+  environments:
     output: true
   setups:
     output: true

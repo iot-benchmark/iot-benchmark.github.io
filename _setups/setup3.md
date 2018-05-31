@@ -1,7 +1,7 @@
 ---
 uid: setup3
 profile: somepattern-50s
-testbed: indriya
+environment: indriya
 protocol: protocol2
 configuration: default
 description: >

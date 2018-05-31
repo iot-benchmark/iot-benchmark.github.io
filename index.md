@@ -21,11 +21,11 @@ We currently have the following profiles:
 * [{{profile.name}}](/profiles/{{profile.uid}})
 {% endfor %}
 
-## Testbeds
+## Environments
 
-We currently have the following testbeds:
-{% for testbed in site.testbeds %}
-* [{{testbed.name}}](/testbeds/{{testbed.uid}})
+We currently have the following environments:
+{% for environment in site.environments %}
+* [{{environment.name}} ({{environment.category}})](/environments/{{environment.env_id}})
 {% endfor %}
 
 ## Protocols
@@ -39,15 +39,15 @@ We currently have results for the following protocols:
 
 A summary of current results is shown below:
 
-[//]: # Show a table one row per profile, one column per testbed, and in each
+[//]: # Show a table one row per profile, one column per environment, and in each
 [//]: # cell, the setups we have results for.
 
-|  | {% for testbed in site.testbeds %} [{{testbed.name}}](/testbeds/{{testbed.uid}}) | {% endfor %}
+|  | {% for environment in site.environments %} [{{environment.name}}](/environments/{{environment.env_id}}) | {% endfor %}
 | --- | {% for setup in site.setups %} --- | {% endfor %}
 {%- for profile in site.profiles %}
 | [{{profile.name}}](/profiles/{{profile.uid}}) |
-{%- for testbed in site.testbeds -%}
-{%- assign cell_setups = site.setups | where: "profile", profile.uid | where: "testbed", testbed.uid -%}
+{%- for environment in site.environments -%}
+{%- assign cell_setups = site.setups | where: "profile", profile.uid | where: "environment", environment.env_id -%}
 {%- for setup in cell_setups -%}
 {%- assign protocol = site.protocols | where: "uid", setup.protocol | first -%}
 {%- assign profile = site.profiles | where: "uid", setup.profile | first -%}

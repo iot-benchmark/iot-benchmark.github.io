@@ -1,7 +1,7 @@
 ---
 uid: setup2
 profile: somepattern-4s
-testbed: iotlab
+environment: iotlab
 protocol: protocol3
 configuration: default
 description: >
