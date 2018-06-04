@@ -62,7 +62,7 @@ This profile has results for the following results:
 {%- assign cell_results = site.results | where: "profile", profile.uid | where: "protocol": protocol.uid | where: "environment", environment.env_id -%}
 {%- for result in cell_results -%}
 {%- assign profile = site.profiles | where: "uid", result.profile | first -%}
-[[{{result.configuration}}]](/results/{{result.uid}})<br />
+[[{{result.configuration}}]](/results/{{result.result_id}})<br />
 {%- endfor -%}
  |
 {%- endfor -%}
@@ -90,7 +90,7 @@ The data, with for each result a distribution of per-run means, is shown next.
 
 {% assign protocol = site.protocols | where: "uid", result.protocol | first %}
 {% assign environment = site.environments | where: "uid", result.environment | first %}
-{% assign results = site.data.results[{{result.uid}}]}} %}
+{% assign results = site.data.results[{{result.result_id}}]}} %}
 {% assign result_name = {{protocol.name}} | append: " [" | append: {{result.configuration}} | append: "]<br />" | append: {{environment.name}}  %}
 [//]: # Create an empty array where to store the mean result of each run
 {% assign result_means = "" | split: "" %}

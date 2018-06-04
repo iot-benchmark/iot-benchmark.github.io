@@ -28,7 +28,7 @@ Available resources:
 
 ## Results
 
-{% assign results = site.data.results[{{result.uid}}]}} %}
+{% assign results = site.data.results[{{result.result_id}}]}} %}
 
 {% include plotly/header.md %}
 
@@ -77,7 +77,7 @@ Available resources:
 {% assign runid = run[0] %}
 {% assign res = results[{{runid}}] %}
 
-* {{runid}} *({{run[1].date}})* -- [YAML data]({{site.github.repository_url}}/tree/master/_data/results/{{result.uid}}/{{runid}}.yml)
+* {{runid}} *({{run[1].date}})* -- [YAML data]({{site.github.repository_url}}/tree/master/_data/results/{{result.result_id}}/{{runid}}.yml)
 
 [//]: # For each metric, create a boxplot. Show the boxplots as HTML inline
 [//]: # elements. The boxplot shows, for a given metric, the distribution

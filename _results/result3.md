@@ -1,5 +1,5 @@
 ---
-uid: result3
+result_id: result3
 profile: somepattern-50s
 environment: indriya
 protocol: protocol2

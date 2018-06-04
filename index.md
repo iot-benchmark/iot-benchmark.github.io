@@ -51,7 +51,7 @@ A summary of current results is shown below:
 {%- for result in cell_results -%}
 {%- assign protocol = site.protocols | where: "uid", result.protocol | first -%}
 {%- assign profile = site.profiles | where: "uid", result.profile | first -%}
-<small>[{{protocol.name}} [{{result.configuration}}]](/results/{{result.uid}})</small><br />
+<small>[{{protocol.name}} [{{result.configuration}}]](/results/{{result.result_id}})</small><br />
 {%- endfor -%}
  |
 {%- endfor -%}

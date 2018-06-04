@@ -22,7 +22,7 @@
 {%- assign cell_results = site.results | where: "profile", profile.uid | where: "protocol": protocol.uid | where: "environment", environment.env_id -%}
 {%- for result in cell_results -%}
 {%- assign profile = site.profiles | where: "uid", result.profile | first -%}
-[[{{result.configuration}}]](/results/{{result.uid}})<br />
+[[{{result.configuration}}]](/results/{{result.result_id}})<br />
 {%- endfor -%}
  |
 {%- endfor -%}

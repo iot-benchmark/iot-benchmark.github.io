@@ -1,5 +1,5 @@
 ---
-uid: result2
+result_id: result2
 profile: somepattern-4s
 environment: iotlab
 protocol: protocol3

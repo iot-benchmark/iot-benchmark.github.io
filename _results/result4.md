@@ -1,5 +1,5 @@
 ---
-uid: result4
+result_id: result4
 profile: somepattern-random
 environment: flocklab
 protocol: protocol3
